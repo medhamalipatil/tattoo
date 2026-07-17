@@ -4,7 +4,7 @@ import {
   ChevronDown, ChevronUp, Loader, AlertCircle, Sparkles,
   Image as ImageIcon, Sliders
 } from 'lucide-react';
-import { generateImageSet, saveGenerationToHistory, loadGenerationHistory } from '../utils/promptBuilder';
+import { generateImageSet, saveGenerationToHistory, loadGenerationHistory, buildTattooPrompt, buildPollinationsUrl } from '../utils/promptBuilder';
 
 // ── Input field styles ────────────────────────────────────────────────────────
 const inputStyle = {
@@ -225,7 +225,6 @@ export default function TattooGenerator({ artistsList, onAddBooking, userCredent
   const handleRegenerate = (imageId) => {
     setImageSet(prev => prev.map(img => {
       if (img.id === imageId) {
-        const { buildTattooPrompt, buildPollinationsUrl } = require('../utils/promptBuilder');
         const prompt = buildTattooPrompt(inputs);
         const newSeed = Math.floor(Math.random() * 9999999);
         return {

@@ -356,7 +356,6 @@ export default function AIConsultant({ globalCatalog, artistsList }) {
 
   // Load history on mount
   useEffect(() => {
-    const { loadConsultationHistory } = require('../utils/aiConsultant');
     setHistory(loadConsultationHistory());
   }, []);
 

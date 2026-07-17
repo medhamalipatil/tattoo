@@ -32,10 +32,40 @@ const initialArtists = [
     styles: ["Fine Line", "Minimal", "Watercolor"],
     price: "$$$",
     bio: "Specializes in delicate floral compositions, micro-realism, and light, flowing watercolor pieces. Over 8 years of custom canvas work.",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+    banner: "https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=1200&q=80",
+    yearsExperience: "8 Years",
+    specializations: ["Micro-Realism", "Botanical Art", "Color Blending"],
+    certifications: ["Bloodborne Pathogens Certified", "Licensed Tattoo Artist (DOH)", "First Aid certified"],
+    location: "Studio 404, 25 Broadway, New York, NY 10004",
+    workingHours: "Tuesday - Saturday: 11:00 AM - 7:00 PM",
+    priceRange: "$150 - $250 / hour",
     portfolio: [
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="50" cy="50" r="30" stroke-dasharray="1 3"/><path d="M50,10 C45,30 35,45 50,90 C65,45 55,30 50,10" fill="currentColor" fill-opacity="0.1"/></svg>`,
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20,50 C35,20 65,80 80,50" stroke-width="1.5"/><circle cx="50" cy="50" r="15" stroke-dasharray="3 3"/></svg>`,
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="30" y="30" width="40" height="40" stroke-dasharray="2 2"/><circle cx="50" cy="50" r="28"/></svg>`
+    ],
+    portfolioItems: [
+      {
+        image: "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=500&q=80",
+        style: "Watercolor",
+        description: "Enchanted cherry blossom branch swirling around the inner arm.",
+        hoursTaken: "3.5 hours",
+        price: "$600",
+        healingPhoto: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=500&q=80",
+        customerReview: "Absolutely stellar work! The colors blended beautifully and the healing photo shows it retained all its magic.",
+        tags: ["floral", "colorful", "watercolor", "delicate"]
+      },
+      {
+        image: "https://images.unsplash.com/photo-1611501487429-c88f1766f7f6?auto=format&fit=crop&w=500&q=80",
+        style: "Fine Line",
+        description: "Minimalist constellation pattern along the collarbone.",
+        hoursTaken: "1.5 hours",
+        price: "$250",
+        healingPhoto: "https://images.unsplash.com/photo-1611501487429-c88f1766f7f6?auto=format&fit=crop&w=500&q=80",
+        customerReview: "So delicate and clean. Barely felt any pain.ARIA is the absolute queen of lines!",
+        tags: ["constellation", "astronomy", "minimal", "fine line"]
+      }
     ]
   },
   {
@@ -47,10 +77,30 @@ const initialArtists = [
     styles: ["Japanese", "Traditional", "Geometric"],
     price: "$$$$",
     bio: "Dedicated to modern interpretations of traditional Japanese irezumi and intricate geometric sleeves. Integrates clean bold lining.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+    banner: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=1200&q=80",
+    yearsExperience: "12 Years",
+    specializations: ["Irezumi Sleeves", "Symmetric Mandalas", "Bold Outlining"],
+    certifications: ["Master of Traditional Art (Kyoto Guild)", "Hygiene Standard Certified (Japan)", "Bloodborne Pathogens Certified"],
+    location: "Irezumi Lab, 3-Chrome Shibuya, Tokyo 150-0002",
+    workingHours: "Monday - Friday: 12:00 PM - 8:00 PM",
+    priceRange: "$250 - $400 / hour",
     portfolio: [
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M50,10 C20,30 20,70 50,90 C80,70 80,30 50,10 Z" stroke-width="1.5"/><path d="M50,30 C35,45 35,55 50,70 C65,55 65,45 50,30 Z" fill="currentColor" fill-opacity="0.15"/></svg>`,
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10,90 L90,10 M10,10 L90,90 M50,10 L50,90 M10,50 L90,50"/><circle cx="50" cy="50" r="30"/></svg>`,
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="50" cy="50" r="40" stroke-dasharray="4 2"/><polygon points="50,20 76,65 24,65"/></svg>`
+    ],
+    portfolioItems: [
+      {
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80",
+        style: "Japanese",
+        description: "Full backpiece scaling dragon with wind bars and water splash.",
+        hoursTaken: "24 hours",
+        price: "$6000",
+        healingPhoto: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80",
+        customerReview: "An honor to wear Kenji's art. His precision with irezumi history and shading is unparalleled.",
+        tags: ["dragon", "backpiece", "irezumi", "traditional"]
+      }
     ]
   },
   {
@@ -62,10 +112,30 @@ const initialArtists = [
     styles: ["Geometric", "Minimal", "Fine Line"],
     price: "$$",
     bio: "Architect-turned-tattooist. Focuses on hyper-precise mathematical structures, linework mandalas, and astronomical blueprints.",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80",
+    banner: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    yearsExperience: "6 Years",
+    specializations: ["Sacred Geometry", "Mathematical Blueprints", "Dotwork Shading"],
+    certifications: ["Alliance of Professional Tattooists", "UK Health & Safety Register", "First Aid Certified"],
+    location: "Draft & Ink, 78 Shoreditch High St, London E1 6JJ",
+    workingHours: "Wednesday - Sunday: 10:00 AM - 6:00 PM",
+    priceRange: "$100 - $180 / hour",
     portfolio: [
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><circle cx="50" cy="50" r="35"/><circle cx="50" cy="50" r="25"/><circle cx="50" cy="50" r="15"/><line x1="15" y1="50" x2="85" y2="50"/></svg>`,
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="50,10 90,80 10,80"/><circle cx="50" cy="55" r="15"/></svg>`,
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20,20 L80,20 L80,80 L20,80 Z" stroke-width="1.5"/><line x1="20" y1="20" x2="80" y2="80"/><line x1="80" y1="20" x2="20" y2="80"/></svg>`
+    ],
+    portfolioItems: [
+      {
+        image: "https://images.unsplash.com/photo-1611501487429-c88f1766f7f6?auto=format&fit=crop&w=500&q=80",
+        style: "Geometric",
+        description: "Metatron's cube sleeve with intricate dotwork gradient shading.",
+        hoursTaken: "8 hours",
+        price: "$1200",
+        healingPhoto: "https://images.unsplash.com/photo-1611501487429-c88f1766f7f6?auto=format&fit=crop&w=500&q=80",
+        customerReview: "Stunning geometry. The dots are completely uniform and healed up perfectly black.",
+        tags: ["metatron", "sacred-geometry", "sleeve", "dotwork"]
+      }
     ]
   },
   {
@@ -77,10 +147,30 @@ const initialArtists = [
     styles: ["Tribal", "Traditional", "Realism"],
     price: "$$",
     bio: "Passionate about traditional Polynesian tribal work and realistic portraits. Draws inspiration from natural textures, wood, and stones.",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+    banner: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80",
+    yearsExperience: "10 Years",
+    specializations: ["Polynesian Tribal", "Realist Portraits", "Wood/Stone Texturing"],
+    certifications: ["Licensed Tattooist UK", "Polynesian Cultural Art Council Certified", "Aseptic Technique Certified"],
+    location: "Origins Studio, 12 Greenwich High Rd, London SE10 8NN",
+    workingHours: "Tuesday - Saturday: 11:00 AM - 8:00 PM",
+    priceRange: "$120 - $200 / hour",
     portfolio: [
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10,50 Q30,20 50,50 T90,50" stroke-width="2"/><path d="M10,60 Q30,30 50,60 T90,60" stroke-dasharray="1 2"/></svg>`,
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="50" cy="45" r="20" fill="currentColor"/><circle cx="50" cy="70" r="10" stroke-width="1.5"/></svg>`,
       `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M30,30 L70,30 L50,70 Z" fill="currentColor" fill-opacity="0.2"/><circle cx="50" cy="40" r="5" fill="currentColor"/></svg>`
+    ],
+    portfolioItems: [
+      {
+        image: "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=500&q=80",
+        style: "Tribal",
+        description: "Polynesian ocean waves shoulder strap wrapping into chest curves.",
+        hoursTaken: "5 hours",
+        price: "$800",
+        healingPhoto: "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=500&q=80",
+        customerReview: "Strong lines and bold flow. Felt a genuine connection to the cultural history.",
+        tags: ["tribal", "polynesian", "chest", "bold"]
+      }
     ]
   }
 ];

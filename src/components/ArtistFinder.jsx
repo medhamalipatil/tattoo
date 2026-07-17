@@ -1,68 +1,8 @@
 import React, { useState } from 'react';
 import { Search, MapPin, Award, Star, Compass, Calendar, Sparkles } from 'lucide-react';
+import ArtistPortfolioModal from './ArtistPortfolioModal';
 
-const mockArtists = [
-  {
-    id: 1,
-    name: "Aria Thorne",
-    city: "New York",
-    rating: 4.9,
-    reviewsCount: 142,
-    styles: ["Fine Line", "Minimal", "Watercolor"],
-    price: "$$$",
-    bio: "Specializes in delicate floral compositions, micro-realism, and light, flowing watercolor pieces. Over 8 years of custom canvas work.",
-    portfolio: [
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="50" cy="50" r="30" stroke-dasharray="1 3"/><path d="M50,10 C45,30 35,45 50,90 C65,45 55,30 50,10" fill="currentColor" fill-opacity="0.1"/></svg>`,
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20,50 C35,20 65,80 80,50" stroke-width="1.5"/><circle cx="50" cy="50" r="15" stroke-dasharray="3 3"/></svg>`,
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="30" y="30" width="40" height="40" stroke-dasharray="2 2"/><circle cx="50" cy="50" r="28"/></svg>`
-    ]
-  },
-  {
-    id: 2,
-    name: "Kenji Sato",
-    city: "Tokyo",
-    rating: 5.0,
-    reviewsCount: 310,
-    styles: ["Japanese", "Traditional", "Geometric"],
-    price: "$$$$",
-    bio: "Dedicated to modern interpretations of traditional Japanese irezumi and intricate geometric sleeves. Integrates clean bold lining.",
-    portfolio: [
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M50,10 C20,30 20,70 50,90 C80,70 80,30 50,10 Z" stroke-width="1.5"/><path d="M50,30 C35,45 35,55 50,70 C65,55 65,45 50,30 Z" fill="currentColor" fill-opacity="0.15"/></svg>`,
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10,90 L90,10 M10,10 L90,90 M50,10 L50,90 M10,50 L90,50"/><circle cx="50" cy="50" r="30"/></svg>`,
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="50" cy="50" r="40" stroke-dasharray="4 2"/><polygon points="50,20 76,65 24,65"/></svg>`
-    ]
-  },
-  {
-    id: 3,
-    name: "Elena Rostova",
-    city: "London",
-    rating: 4.8,
-    reviewsCount: 96,
-    styles: ["Geometric", "Minimal", "Fine Line"],
-    price: "$$",
-    bio: "Architect-turned-tattooist. Focuses on hyper-precise mathematical structures, linework mandalas, and astronomical blueprints.",
-    portfolio: [
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><circle cx="50" cy="50" r="35"/><circle cx="50" cy="50" r="25"/><circle cx="50" cy="50" r="15"/><line x1="15" y1="50" x2="85" y2="50"/></svg>`,
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="50,10 90,80 10,80"/><circle cx="50" cy="55" r="15"/></svg>`,
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20,20 L80,20 L80,80 L20,80 Z" stroke-width="1.5"/><line x1="20" y1="20" x2="80" y2="80"/><line x1="80" y1="20" x2="20" y2="80"/></svg>`
-    ]
-  },
-  {
-    id: 4,
-    name: "Marcus Vance",
-    city: "London",
-    rating: 4.7,
-    reviewsCount: 88,
-    styles: ["Tribal", "Traditional", "Realism"],
-    price: "$$",
-    bio: "Passionate about traditional Polynesian tribal work and realistic portraits. Draws inspiration from natural textures, wood, and stones.",
-    portfolio: [
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10,50 Q30,20 50,50 T90,50" stroke-width="2"/><path d="M10,60 Q30,30 50,60 T90,60" stroke-dasharray="1 2"/></svg>`,
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="50" cy="45" r="20" fill="currentColor"/><circle cx="50" cy="70" r="10" stroke-width="1.5"/></svg>`,
-      `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M30,30 L70,30 L50,70 Z" fill="currentColor" fill-opacity="0.2"/><circle cx="50" cy="40" r="5" fill="currentColor"/></svg>`
-    ]
-  }
-];
+const mockArtists = []; // Not used directly, but kept for signature safety if referenced elsewhere
 
 export default function ArtistFinder({ artistsList, onAddBooking, userCredentials }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -71,6 +11,7 @@ export default function ArtistFinder({ artistsList, onAddBooking, userCredential
   const [bookingArtist, setBookingArtist] = useState(null);
   const [bookingDate, setBookingDate] = useState('');
   const [bookingSuccess, setBookingSuccess] = useState(false);
+  const [selectedPortfolioArtist, setSelectedPortfolioArtist] = useState(null);
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -270,6 +211,14 @@ export default function ArtistFinder({ artistsList, onAddBooking, userCredential
             {/* Actions */}
             <div style={{ display: 'flex', gap: '0.8rem', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
               <button
+                type="button"
+                onClick={() => setSelectedPortfolioArtist(artist)}
+                className="btn-secondary"
+                style={{ flex: 1, padding: '0.6rem', fontSize: '0.85rem', justifyContent: 'center' }}
+              >
+                View Portfolio
+              </button>
+              <button
                 id={`btn-book-${artist.id}`}
                 type="button"
                 onClick={() => setBookingArtist(artist)}
@@ -373,6 +322,16 @@ export default function ArtistFinder({ artistsList, onAddBooking, userCredential
             )}
           </div>
         </div>
+      {/* Artist Detailed Portfolio Modal */}
+      {selectedPortfolioArtist && (
+        <ArtistPortfolioModal
+          artist={selectedPortfolioArtist}
+          onClose={() => setSelectedPortfolioArtist(null)}
+          onOpenBooking={(artist) => {
+            setSelectedPortfolioArtist(null);
+            setBookingArtist(artist);
+          }}
+        />
       )}
 
     </div>
