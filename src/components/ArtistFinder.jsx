@@ -64,7 +64,7 @@ const mockArtists = [
   }
 ];
 
-export default function ArtistFinder() {
+export default function ArtistFinder({ artistsList, onAddBooking, userCredentials }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStyle, setSelectedStyle] = useState('All');
   const [selectedPrice, setSelectedPrice] = useState('All');
@@ -74,7 +74,14 @@ export default function ArtistFinder() {
 
   const handleBooking = (e) => {
     e.preventDefault();
-    if (bookingDate) {
+    if (bookingDate && bookingArtist) {
+      onAddBooking({
+        artistId: bookingArtist.id,
+        artistName: bookingArtist.name,
+        date: bookingDate,
+        customerName: userCredentials?.name || 'Guest User',
+        customerEmail: userCredentials?.email || 'guest@example.com'
+      });
       setBookingSuccess(true);
       setTimeout(() => {
         setBookingSuccess(false);
@@ -84,7 +91,7 @@ export default function ArtistFinder() {
     }
   };
 
-  const filteredArtists = mockArtists.filter(artist => {
+  const filteredArtists = artistsList.filter(artist => {
     const matchesSearch = artist.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           artist.city.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStyle = selectedStyle === 'All' || artist.styles.includes(selectedStyle);

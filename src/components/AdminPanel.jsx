@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart2, ShieldAlert, Layers, Plus, Database, Sparkles, Check, Trash } from 'lucide-react';
-import { tattoosData } from '../data/tattoosData';
+import { BarChart2, ShieldAlert, Layers, Plus, Database, Sparkles, Check, Trash, Users, Store } from 'lucide-react';
 
 const mockLogs = [
   { id: 101, user: "Sarah J.", age: 24, traits: "Heart-Led, Thrill Seeker", matched: "The Phoenix", score: 96, date: "10 mins ago" },
@@ -9,8 +8,9 @@ const mockLogs = [
   { id: 104, user: "Sophie C.", age: 22, traits: "Balanced, Zen Mind", matched: "The Cosmic Lotus", score: 95, date: "4 hours ago" }
 ];
 
-export default function AdminPanel() {
-  const [dbTattoos, setDbTattoos] = useState(tattoosData);
+export default function AdminPanel({ globalCatalog, setGlobalCatalog, bookings, artistsList, setArtistsList }) {
+  const dbTattoos = globalCatalog;
+  const setDbTattoos = setGlobalCatalog;
   const [showAddForm, setShowAddForm] = useState(false);
   const [newName, setNewName] = useState('');
   const [newStyle, setNewStyle] = useState('Minimal');
@@ -86,30 +86,30 @@ export default function AdminPanel() {
       {/* Analytics widgets */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.2rem' }}>
         
-        {/* Metric 1 */}
+        {/* Metric 1 - Live Catalog Count */}
         <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>TOTAL COMPLETED ASSESSMENTS</span>
-          <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }} className="glow-text">1,424</div>
-          <span style={{ fontSize: '0.7rem', color: 'var(--status-success)' }}>↑ 18% vs last week</span>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>DESIGNS IN CATALOG</span>
+          <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }} className="glow-text">{dbTattoos.length}</div>
+          <span style={{ fontSize: '0.7rem', color: 'var(--status-success)' }}>Live catalog — add or remove above</span>
         </div>
 
-        {/* Metric 2 */}
+        {/* Metric 2 - Live Booking count */}
         <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>PEAK RECOMMENDATION MATCH</span>
-          <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }} className="glow-text">The Phoenix (38%)</div>
-          <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Followed by: Mountain (24%)</span>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>TOTAL BOOKINGS</span>
+          <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }} className="glow-text">{(bookings || []).length}</div>
+          <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Pending: {(bookings || []).filter(b => b.status === 'Pending').length} | Approved: {(bookings || []).filter(b => b.status === 'Approved').length}</span>
         </div>
 
         {/* Metric 3 */}
         <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>PREFFERED ART STYLE STYLE</span>
-          <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }} className="glow-text">Minimal (42%)</div>
-          <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Fine Line (31%), Geometric (18%)</span>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>REGISTERED STUDIOS</span>
+          <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }} className="glow-text">{(artistsList || []).length}</div>
+          <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Active partner studios in directory</span>
         </div>
 
         {/* Metric 4 */}
         <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>COMMUNITY NARRATIVES PUBLISHED</span>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>COMMUNITY NARRATIVES</span>
           <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }} className="glow-text">18 stories</div>
           <span style={{ fontSize: '0.7rem', color: 'var(--status-warning)' }}>3 pending moderation</span>
         </div>
