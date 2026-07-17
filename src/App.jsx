@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Sparkles, Heart, Compass, BookOpen, Database, Award,
   User, LogIn, ChevronRight, RefreshCw, Layers,
-  Store, Users, ShieldCheck, Wand2, Bot
+  Store, Users, ShieldCheck, Wand2, Bot, Search
 } from 'lucide-react';
 import { recommendTattoos } from './utils/recommender';
 import { tattoosData } from './data/tattoosData';
@@ -19,6 +19,7 @@ import ShopkeeperDashboard from './components/ShopkeeperDashboard';
 import CustomerDashboard from './components/CustomerDashboard';
 import AIConsultant from './components/AIConsultant';
 import TattooGenerator from './components/TattooGenerator';
+import ImageSearch from './components/ImageSearch';
 
 // ── Initial mock artists list (shared state) ──────────────────────────────────
 const initialArtists = [
@@ -171,6 +172,7 @@ export default function App() {
       { id: 'Dashboard', label: 'My Dashboard', icon: User },
       { id: 'Consultant', label: 'AI Consultant', icon: Bot },
       { id: 'Generator', label: 'AI Generator', icon: Wand2 },
+      { id: 'ImageSearch', label: 'AI Image Search', icon: Search },
       { id: 'Assessment', label: 'Soul Assessment', icon: Sparkles },
       { id: 'Simulator', label: 'Tattoo Simulator', icon: Compass },
       { id: 'Artists', label: 'Artist Finder', icon: Award },
@@ -407,6 +409,14 @@ export default function App() {
             artistsList={artistsList}
             onAddBooking={handleAddBooking}
             userCredentials={userCredentials}
+            setActiveTab={setActiveTab}
+          />
+        )}
+
+        {activeTab === 'ImageSearch' && (
+          <ImageSearch
+            globalCatalog={globalCatalog}
+            artistsList={artistsList}
             setActiveTab={setActiveTab}
           />
         )}
