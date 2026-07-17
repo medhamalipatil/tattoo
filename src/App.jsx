@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Sparkles, Heart, Compass, BookOpen, Database, Award,
   User, LogIn, ChevronRight, RefreshCw, Layers,
-  Store, Users, ShieldCheck
+  Store, Users, ShieldCheck, Wand2, Bot
 } from 'lucide-react';
 import { recommendTattoos } from './utils/recommender';
 import { tattoosData } from './data/tattoosData';
@@ -17,6 +17,8 @@ import StoryCollection from './components/StoryCollection';
 import AdminPanel from './components/AdminPanel';
 import ShopkeeperDashboard from './components/ShopkeeperDashboard';
 import CustomerDashboard from './components/CustomerDashboard';
+import AIConsultant from './components/AIConsultant';
+import TattooGenerator from './components/TattooGenerator';
 
 // ── Initial mock artists list (shared state) ──────────────────────────────────
 const initialArtists = [
@@ -167,6 +169,8 @@ export default function App() {
   const roleNavConfig = {
     Customer: [
       { id: 'Dashboard', label: 'My Dashboard', icon: User },
+      { id: 'Consultant', label: 'AI Consultant', icon: Bot },
+      { id: 'Generator', label: 'AI Generator', icon: Wand2 },
       { id: 'Assessment', label: 'Soul Assessment', icon: Sparkles },
       { id: 'Simulator', label: 'Tattoo Simulator', icon: Compass },
       { id: 'Artists', label: 'Artist Finder', icon: Award },
@@ -387,6 +391,22 @@ export default function App() {
             bookings={bookings}
             userCredentials={userCredentials}
             globalCatalog={globalCatalog}
+            setActiveTab={setActiveTab}
+          />
+        )}
+
+        {activeTab === 'Consultant' && (
+          <AIConsultant
+            globalCatalog={globalCatalog}
+            artistsList={artistsList}
+          />
+        )}
+
+        {activeTab === 'Generator' && (
+          <TattooGenerator
+            artistsList={artistsList}
+            onAddBooking={handleAddBooking}
+            userCredentials={userCredentials}
             setActiveTab={setActiveTab}
           />
         )}
