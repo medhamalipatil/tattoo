@@ -539,7 +539,9 @@ export default function App() {
               <div>
                 <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>Login as Role</label>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
-                  {Object.entries(roleColors).map(([role, cfg]) => (
+                  {Object.entries(roleColors)
+                    .filter(([role]) => role !== 'Admin')
+                    .map(([role, cfg]) => (
                     <button
                       key={role}
                       type="button"
