@@ -20,6 +20,7 @@ import CustomerDashboard from './components/CustomerDashboard';
 import AIConsultant from './components/AIConsultant';
 import TattooGenerator from './components/TattooGenerator';
 import ImageSearch from './components/ImageSearch';
+import ExploreFeed from './components/ExploreFeed';
 
 // ── Initial mock artists list (shared state) ──────────────────────────────────
 const initialArtists = [
@@ -199,6 +200,14 @@ export default function App() {
   const [isGuest, setIsGuest] = useState(true);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [userCredentials, setUserCredentials] = useState({ name: 'Guest User', email: '' });
+  
+  // ── Toast Notification State ──────────────────────────────────────────────
+  const [toastMsg, setToastMsg] = useState('');
+  const showToast = (msg) => {
+    setToastMsg(msg);
+    setTimeout(() => setToastMsg(''), 3000);
+  };
+
 
   // ── Effects ───────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -217,6 +226,11 @@ export default function App() {
   const handleAssessmentComplete = (profile) => setUserProfile(profile);
 
   const handleToggleSave = (id) => {
+    if (isGuest) {
+      showToast('Login to save items');
+      setShowAuthModal(true);
+      return;
+    }
     setSavedTattooIds(prev => {
       const updated = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
       localStorage.setItem('soulink_saved_tattoos', JSON.stringify(updated));
@@ -225,6 +239,11 @@ export default function App() {
   };
 
   const handleTryInSimulator = (tattoo) => {
+    if (isGuest) {
+      showToast('Login to use the Simulator');
+      setShowAuthModal(true);
+      return;
+    }
     setSelectedTattooForSimulator(tattoo);
     setActiveTab('Simulator');
   };
@@ -248,6 +267,11 @@ export default function App() {
   };
 
   const handleAddBooking = (bookingData) => {
+    if (isGuest) {
+      showToast('Login to book an appointment');
+      setShowAuthModal(true);
+      return;
+    }
     const newBooking = {
       id: Date.now(),
       ...bookingData,
@@ -267,6 +291,7 @@ export default function App() {
       { id: 'Simulator', label: 'Tattoo Simulator', icon: Compass },
       { id: 'Artists', label: 'Artist Finder', icon: Award },
       { id: 'Stories', label: 'Community Stories', icon: BookOpen },
+      { id: 'Explore', label: 'Explore Feed', icon: Compass },
     ],
     Shopkeeper: [
       { id: 'ShopDashboard', label: 'Studio Console', icon: Store },
@@ -595,6 +620,18 @@ export default function App() {
           />
         )}
 
+        {activeTab === 'Explore' && (
+          <ExploreFeed
+            artistsList={artistsList}
+            setActiveTab={setActiveTab}
+            isGuest={isGuest}
+            onRequireAuth={() => {
+              showToast('Login to continue');
+              setShowAuthModal(true);
+            }}
+          />
+        )}
+
         {activeTab === 'Stories' && <StoryCollection />}
 
         {/* ── SHOPKEEPER ROLE TABS ── */}
@@ -714,6 +751,20 @@ export default function App() {
               </div>
             </form>
           </div>
+        </div>
+      )}
+
+      {/* ── GLOBAL TOAST NOTIFICATION ── */}
+      {toastMsg && (
+        <div style={{
+          position: 'fixed', bottom: '2rem', right: '2rem',
+          background: 'var(--bg-surface-elevated)', border: '1px solid var(--accent-teal)',
+          borderRadius: '12px', padding: '1rem 1.5rem', boxShadow: 'var(--shadow-glow)',
+          zIndex: 2000, display: 'flex', alignItems: 'center', gap: '10px',
+          animation: 'fadeIn 0.3s ease forwards'
+        }}>
+          <Sparkles size={18} style={{ color: 'var(--accent-teal)' }} />
+          <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>{toastMsg}</span>
         </div>
       )}
 

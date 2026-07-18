@@ -322,6 +322,7 @@ export default function ArtistFinder({ artistsList, onAddBooking, userCredential
             )}
           </div>
         </div>
+      )}
       {/* Artist Detailed Portfolio Modal */}
       {selectedPortfolioArtist && (
         <ArtistPortfolioModal
