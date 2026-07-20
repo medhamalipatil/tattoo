@@ -8,28 +8,29 @@ export default function TattooCard({ tattoo, onSelect, isSaved, onToggleSave }) 
     return '#ff9f1c';
   };
 
+  const cardTransition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease';
+
   return (
-    <div 
-      className="glass-panel animate-fade-in"
+    <div
+      className="glass-panel-premium animate-scale-in"
       style={{
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        overflow: 'hidden',
         cursor: 'pointer',
-        transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease',
-        position: 'relative'
+        position: 'relative',
+        transition: cardTransition,
       }}
       onClick={() => onSelect(tattoo)}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-6px)';
-        e.currentTarget.style.borderColor = 'rgba(0, 242, 254, 0.25)';
-        e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.5), 0 0 15px rgba(0, 242, 254, 0.08)';
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = 'translateY(-8px) scale(1.03)';
+        e.currentTarget.style.boxShadow = '0 20px 50px -12px rgba(0, 242, 254, 0.4)';
+        e.currentTarget.style.borderColor = 'rgba(0, 242, 254, 0.5)';
       }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'none';
-        e.currentTarget.style.borderColor = 'var(--glass-border)';
-        e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+        e.currentTarget.style.boxShadow = '';
+        e.currentTarget.style.borderColor = '';
       }}
     >
       {/* Saved Bookmark Button */}
@@ -55,14 +56,16 @@ export default function TattooCard({ tattoo, onSelect, isSaved, onToggleSave }) 
           cursor: 'pointer',
           color: isSaved ? 'var(--accent-teal)' : 'var(--text-secondary)',
           zIndex: 10,
-          transition: 'all 0.2s ease',
+          transition: 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease',
           boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1)';
+          e.stopPropagation();
+          e.currentTarget.style.transform = 'scale(1.2)';
           e.currentTarget.style.borderColor = 'var(--accent-teal)';
         }}
         onMouseLeave={(e) => {
+          e.stopPropagation();
           e.currentTarget.style.transform = 'scale(1)';
           e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
         }}
@@ -71,11 +74,14 @@ export default function TattooCard({ tattoo, onSelect, isSaved, onToggleSave }) 
       </button>
 
       {/* SVG Image Preview Container */}
-      <div 
+      <div
+        className="img-zoom-container"
         style={{
           height: '200px',
           backgroundColor: '#0c0c12',
           borderBottom: '1px solid var(--border-color)',
+          borderTopLeftRadius: '16px',
+          borderTopRightRadius: '16px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -95,7 +101,7 @@ export default function TattooCard({ tattoo, onSelect, isSaved, onToggleSave }) 
           zIndex: 1
         }}></div>
 
-        <div 
+        <div
           style={{ width: '100%', height: '100%', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           dangerouslySetInnerHTML={{ __html: tattoo.svgMarkup }}
         />
@@ -105,7 +111,7 @@ export default function TattooCard({ tattoo, onSelect, isSaved, onToggleSave }) 
       <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem', gap: '0.5rem' }}>
           <h4 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-primary)' }}>{tattoo.name}</h4>
-          <span 
+          <span
             style={{
               padding: '0.2rem 0.6rem',
               borderRadius: '20px',

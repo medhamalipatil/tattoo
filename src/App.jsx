@@ -412,8 +412,19 @@ export default function App() {
                   background: active ? `${currentRole.color}12` : 'transparent',
                   color: active ? currentRole.color : 'var(--text-secondary)',
                   cursor: 'pointer', textAlign: 'left', fontSize: '0.9rem',
-                  fontWeight: active ? 600 : 400, transition: 'all 0.2s ease',
+                  fontWeight: active ? 600 : 400,
+                  transition: 'all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
                   borderLeft: active ? `3px solid ${currentRole.color}` : '3px solid transparent'
+                }}
+                onMouseEnter={e => {
+                  if (!active) {
+                    e.currentTarget.style.transform = 'translateX(4px) scale(1.04)';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                  }
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateX(0) scale(1)';
+                  e.currentTarget.style.background = active ? `${currentRole.color}12` : 'transparent';
                 }}
               >
                 <Icon size={16} />
@@ -502,8 +513,9 @@ export default function App() {
           </div>
         )}
 
-        {/* ── CUSTOMER ROLE TABS ── */}
-        {activeTab === 'Dashboard' && (
+        <div key={activeTab} className="animate-slide-up" style={{ width: '100%', minHeight: '100%' }}>
+          {/* ── CUSTOMER ROLE TABS ── */}
+          {activeTab === 'Dashboard' && (
           <CustomerDashboard
             bookings={bookings}
             userCredentials={userCredentials}
@@ -656,6 +668,7 @@ export default function App() {
           />
         )}
 
+        </div>
       </main>
 
       {/* ── DETAIL MODAL ── */}

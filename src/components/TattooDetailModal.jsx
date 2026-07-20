@@ -12,14 +12,13 @@ export default function TattooDetailModal({ tattoo, onClose, isSaved, onToggleSa
 
   return (
     <div 
+      className="modal-backdrop-blur"
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(5, 5, 8, 0.85)',
-        backdropFilter: 'blur(10px)',
         zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
@@ -30,7 +29,7 @@ export default function TattooDetailModal({ tattoo, onClose, isSaved, onToggleSa
     >
       {/* Modal Card */}
       <div 
-        className="glass-panel animate-fade-in"
+        className="glass-panel-premium animate-scale-in"
         style={{
           width: '100%',
           maxWidth: '920px',

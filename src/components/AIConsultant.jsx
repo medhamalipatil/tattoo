@@ -59,7 +59,7 @@ const QUESTIONS = [
 function TypingIndicator() {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 1.2rem' }}>
-      <div style={{
+      <div className="animate-pulse-glow" style={{
         width: '32px', height: '32px', borderRadius: '50%',
         background: 'linear-gradient(135deg, #00f2fe, #9d4edd)',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
@@ -99,8 +99,8 @@ function AIBubble({ text }) {
   ));
 
   return (
-    <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', maxWidth: '80%' }} className="animate-fade-in">
-      <div style={{
+    <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', maxWidth: '80%' }} className="animate-slide-up">
+      <div className="animate-pulse-glow" style={{
         width: '32px', height: '32px', borderRadius: '50%',
         background: 'linear-gradient(135deg, #00f2fe, #9d4edd)',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
@@ -125,7 +125,7 @@ function AIBubble({ text }) {
 // ── User Bubble Component ─────────────────────────────────────────────────────
 function UserBubble({ text }) {
   return (
-    <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', maxWidth: '70%', alignSelf: 'flex-end', flexDirection: 'row-reverse' }} className="animate-fade-in">
+    <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', maxWidth: '70%', alignSelf: 'flex-end', flexDirection: 'row-reverse' }} className="animate-slide-up">
       <div style={{
         width: '32px', height: '32px', borderRadius: '50%',
         background: 'rgba(0, 242, 254, 0.15)',
