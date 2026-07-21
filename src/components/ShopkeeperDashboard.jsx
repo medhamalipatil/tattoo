@@ -92,7 +92,7 @@ export default function ShopkeeperDashboard({ artistsList, setArtistsList, booki
           { label: 'PENDING CONSULTATIONS', value: pendingCount,         color: 'var(--text-primary)',   sub: pendingCount > 0 ? '⚠️ Requires response' : 'No action required', subColor: pendingCount > 0 ? 'var(--status-warning)' : 'var(--text-muted)' },
           { label: 'APPROVED BOOKINGS',     value: approvedCount,        color: 'var(--status-success)', sub: 'Ready for consultation',     subColor: 'var(--text-secondary)' },
           { label: 'ESTIMATED SALES VALUE', value: `$${estimatedRevenue}`, color: 'var(--text-primary)', sub: 'Based on flat $250 avg/session', subColor: 'var(--text-muted)' },
-          { label: 'STUDIO RATING',         value: currentStudio?.rating || '4.9', color: '#f59e0b', star: true, sub: `Based on ${currentStudio?.reviewsCount || '142'} reviews`, subColor: 'var(--text-secondary)' },
+          { label: 'STUDIO RATING',         value: currentStudio?.rating || '4.9', color: 'var(--accent-gold)', star: true, sub: `Based on ${currentStudio?.reviewsCount || '142'} reviews`, subColor: 'var(--text-secondary)' },
         ].map((m, i) => (
           <div
             key={i}
@@ -102,7 +102,7 @@ export default function ShopkeeperDashboard({ artistsList, setArtistsList, booki
           >
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold', letterSpacing: '0.05em' }}>{m.label}</span>
             <div style={{ fontSize: '2rem', fontWeight: 800, color: m.color, display: 'flex', alignItems: 'center', gap: '4px' }} className="glow-text">
-              {m.star && <Star size={24} fill="#f59e0b" />} {m.value}
+              {m.star && <Star size={24} fill="var(--accent-gold)" />} {m.value}
             </div>
             <span style={{ fontSize: '0.7rem', color: m.subColor }}>{m.sub}</span>
           </div>

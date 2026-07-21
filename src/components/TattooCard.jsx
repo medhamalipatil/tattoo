@@ -4,7 +4,7 @@ import { Shield, Sparkles, Heart } from 'lucide-react';
 export default function TattooCard({ tattoo, onSelect, isSaved, onToggleSave }) {
   const getMatchColor = (pct) => {
     if (pct >= 90) return 'var(--accent-teal)';
-    if (pct >= 75) return '#9d4edd';
+    if (pct >= 75) return 'var(--accent-purple)';
     return '#ff9f1c';
   };
 

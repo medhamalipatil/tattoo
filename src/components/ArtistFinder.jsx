@@ -160,8 +160,8 @@ export default function ArtistFinder({ artistsList, onAddBooking, userCredential
                 </div>
                 
                 {/* Rating Badge */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)', padding: '0.2rem 0.5rem', borderRadius: '12px', color: '#f59e0b', fontSize: '0.8rem', fontWeight: 600 }}>
-                  <Star size={12} fill="#f59e0b" />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)', padding: '0.2rem 0.5rem', borderRadius: '12px', color: 'var(--accent-gold)', fontSize: '0.8rem', fontWeight: 600 }}>
+                  <Star size={12} fill="var(--accent-gold)" />
                   <span>{artist.rating}</span>
                 </div>
               </div>

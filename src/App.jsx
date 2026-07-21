@@ -21,6 +21,8 @@ import AIConsultant from './components/AIConsultant';
 import TattooGenerator from './components/TattooGenerator';
 import ImageSearch from './components/ImageSearch';
 import ExploreFeed from './components/ExploreFeed';
+import LandingPage from './components/LandingPage';
+import { DottedSurface } from './components/ui/DottedSurface';
 
 // ── Initial mock artists list (shared state) ──────────────────────────────────
 const initialArtists = [
@@ -179,6 +181,7 @@ const initialArtists = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function App() {
+  const [showLanding, setShowLanding] = useState(true);
   // ── Role System ───────────────────────────────────────────────────────────
   const [userRole, setUserRole] = useState('Customer'); // 'Customer' | 'Shopkeeper' | 'Admin'
 
@@ -315,20 +318,31 @@ export default function App() {
   const tabs = roleNavConfig[userRole];
 
   const roleColors = {
-    Customer: { color: '#00f2fe', label: 'Customer', icon: User },
-    Shopkeeper: { color: '#f59e0b', label: 'Shopkeeper', icon: Store },
-    Admin: { color: '#9d4edd', label: 'Admin', icon: ShieldCheck },
+    Customer: { color: 'var(--accent-teal)', label: 'Customer', icon: User },
+    Shopkeeper: { color: 'var(--accent-gold)', label: 'Shopkeeper', icon: Store },
+    Admin: { color: 'var(--accent-purple)', label: 'Admin', icon: ShieldCheck },
   };
   const currentRole = roleColors[userRole];
 
+  if (showLanding) {
+    return <LandingPage onEnter={() => setShowLanding(false)} />;
+  }
+
   return (
-    <div className="dashboard-grid">
+    <DottedSurface>
+      <div className="dashboard-grid">
 
       {/* ── SIDEBAR ── */}
       <aside className="sidebar">
 
         {/* Brand Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+        <div 
+          onClick={() => setShowLanding(true)}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', cursor: 'pointer', transition: 'opacity 0.2s' }}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = 0.8}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = 1}
+          title="Return to Home Page"
+        >
           <div style={{
             width: '40px', height: '40px', borderRadius: '12px',
             background: 'var(--accent-gradient)', display: 'flex', alignItems: 'center',
@@ -394,6 +408,38 @@ export default function App() {
 
         {/* Tab Navigation */}
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', flex: 1 }}>
+          {/* Home / Landing Page Button */}
+          <button
+            id="tab-home"
+            type="button"
+            onClick={() => setShowLanding(true)}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '0.8rem',
+              padding: '0.85rem 1.2rem', borderRadius: '12px', border: 'none',
+              background: 'transparent',
+              color: 'var(--text-secondary)',
+              cursor: 'pointer', textAlign: 'left', fontSize: '0.9rem',
+              fontWeight: 400,
+              transition: 'all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
+              borderLeft: '3px solid transparent',
+              borderBottom: '1px solid var(--border-color)',
+              marginBottom: '0.4rem',
+              paddingBottom: '1.2rem',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateX(4px) scale(1.04)';
+              e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+              e.currentTarget.style.color = 'var(--text-primary)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateX(0) scale(1)';
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = 'var(--text-secondary)';
+            }}
+          >
+            <ChevronRight size={16} style={{ rotate: '180deg' }} />
+            <span>← Back to Home</span>
+          </button>
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const active = activeTab === tab.id;
@@ -781,6 +827,7 @@ export default function App() {
         </div>
       )}
 
-    </div>
+      </div>
+    </DottedSurface>
   );
 }

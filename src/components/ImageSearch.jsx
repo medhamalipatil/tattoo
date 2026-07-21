@@ -286,7 +286,7 @@ export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }
 
             <div>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase' }}>Stroke Complexity</span>
-              <div style={{ display: 'flex', gap: '2px', marginTop: '0.2rem', color: '#f59e0b' }}>
+              <div style={{ display: 'flex', gap: '2px', marginTop: '0.2rem', color: 'var(--accent-gold)' }}>
                 {[1, 2, 3, 4, 5].map(star => (
                   <Star key={star} size={14} fill={star <= visionData.complexity ? 'currentColor' : 'none'} />
                 ))}
@@ -412,8 +412,8 @@ export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }
                       </div>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '3px', color: '#f59e0b', fontSize: '0.85rem', fontWeight: 700 }}>
-                        <Star size={13} fill="#f59e0b" /> {artist.rating}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '3px', color: 'var(--accent-gold)', fontSize: '0.85rem', fontWeight: 700 }}>
+                        <Star size={13} fill="var(--accent-gold)" /> {artist.rating}
                       </div>
                       <button onClick={handleBookArtist} className="btn-primary" style={{ padding: '0.45rem 1rem', fontSize: '0.78rem' }}>
                         <Calendar size={12} /> Book

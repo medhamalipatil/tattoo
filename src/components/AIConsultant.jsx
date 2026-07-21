@@ -61,7 +61,7 @@ function TypingIndicator() {
     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 1.2rem' }}>
       <div className="animate-pulse-glow" style={{
         width: '32px', height: '32px', borderRadius: '50%',
-        background: 'linear-gradient(135deg, #00f2fe, #9d4edd)',
+        background: 'linear-gradient(135deg, var(--accent-teal), var(--accent-purple))',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
       }}>
         <Bot size={16} color="#07070a" />
@@ -102,7 +102,7 @@ function AIBubble({ text }) {
     <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', maxWidth: '80%' }} className="animate-slide-up">
       <div className="animate-pulse-glow" style={{
         width: '32px', height: '32px', borderRadius: '50%',
-        background: 'linear-gradient(135deg, #00f2fe, #9d4edd)',
+        background: 'linear-gradient(135deg, var(--accent-teal), var(--accent-purple))',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
       }}>
         <Bot size={16} color="#07070a" />
@@ -207,7 +207,7 @@ function ConsultationReport({ report, onRestart, artistsList }) {
                 <div style={{
                   position: 'absolute', top: '-6px', right: '-6px',
                   width: '20px', height: '20px', borderRadius: '50%',
-                  background: i === 0 ? 'var(--accent-teal)' : i === 1 ? 'var(--accent-purple)' : '#f59e0b',
+                  background: i === 0 ? 'var(--accent-teal)' : i === 1 ? 'var(--accent-purple)' : 'var(--accent-gold)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '0.65rem', fontWeight: 800, color: '#07070a'
                 }}>
@@ -322,8 +322,8 @@ function ConsultationReport({ report, onRestart, artistsList }) {
                 ))}
               </div>
             </div>
-            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px', color: '#f59e0b', fontWeight: 700 }}>
-              <Star size={14} fill="#f59e0b" />
+            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-gold)', fontWeight: 700 }}>
+              <Star size={14} fill="var(--accent-gold)" />
               <span>{artistRecommendation.rating}</span>
             </div>
           </div>
