@@ -344,10 +344,8 @@ export default function App() {
   }
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--bg-base)' }}>
-      {/* Animated orbital background — live on all dashboards */}
-      <OrbitalBackground opacity={0.6} />
-      <div className="dashboard-grid" style={{ position: 'relative', zIndex: 1 }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+      <div className="dashboard-grid">
 
       {/* ── SIDEBAR ── */}
       <aside className="sidebar">

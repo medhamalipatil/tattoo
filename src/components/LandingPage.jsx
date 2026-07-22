@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sparkles, Bot, Compass, Award, ArrowRight, ShieldCheck, Star } from 'lucide-react';
 import { Particles } from './ui/Particles';
+import OrbitalBackground from './ui/OrbitalBackground';
 
 export default function LandingPage({ onEnter }) {
   return (
@@ -13,28 +14,57 @@ export default function LandingPage({ onEnter }) {
       padding: '2rem',
       position: 'relative',
       overflow: 'hidden',
+      background: '#0F1117',
     }}>
-      {/* Full-screen background photo */}
-      <div aria-hidden="true" style={{
-        position: 'fixed', inset: 0, zIndex: 0,
+      {/* 1. Animated full-screen background photo (slow pan/zoom) */}
+      <div aria-hidden="true" className="landing-bg-animate" style={{
+        position: 'fixed', inset: '-5%', zIndex: 0,
         backgroundImage: 'url(/landing-bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        filter: 'brightness(0.55) saturate(0.85)',
+        filter: 'brightness(0.50) saturate(0.85)',
       }} />
 
-      {/* Dark cinematic gradient overlay — keeps text readable */}
+      {/* 2. Live animated orbital rings canvas */}
+      <div aria-hidden="true" style={{ position: 'fixed', inset: 0, zIndex: 1, pointerEvents: 'none' }}>
+        <OrbitalBackground opacity={0.45} />
+      </div>
+
+      {/* 3. Live floating stardust particles */}
+      <div aria-hidden="true" style={{ position: 'fixed', inset: 0, zIndex: 2, pointerEvents: 'none' }}>
+        <Particles
+          color="#C0C8D8"
+          particleCount={2500}
+          particleSize={2.2}
+          animate={true}
+        />
+      </div>
+
+      {/* 4. Dark cinematic gradient overlay */}
       <div aria-hidden="true" style={{
-        position: 'fixed', inset: 0, zIndex: 1, pointerEvents: 'none',
-        background: 'linear-gradient(160deg, rgba(0,0,0,0.72) 0%, rgba(10,10,18,0.62) 50%, rgba(0,0,0,0.80) 100%)',
+        position: 'fixed', inset: 0, zIndex: 3, pointerEvents: 'none',
+        background: 'linear-gradient(160deg, rgba(15,17,23,0.72) 0%, rgba(10,10,18,0.55) 50%, rgba(15,17,23,0.80) 100%)',
       }} />
 
-      {/* Subtle silver shimmer vignette */}
-      <div aria-hidden="true" style={{
-        position: 'fixed', inset: 0, zIndex: 2, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse at 50% 0%, rgba(192,200,216,0.08) 0%, transparent 60%)',
-      }} />
+      {/* 5. Animated floating light orbs */}
+      <div aria-hidden="true" style={{ position: 'fixed', inset: 0, zIndex: 4, pointerEvents: 'none', overflow: 'hidden' }}>
+        <div className="animate-float" style={{
+          position: 'absolute', top: '15%', left: '10%',
+          width: '35vw', height: '35vw', borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(192, 200, 216, 0.12) 0%, transparent 70%)',
+          filter: 'blur(50px)',
+          animationDuration: '10s'
+        }} />
+        <div className="animate-float" style={{
+          position: 'absolute', bottom: '10%', right: '8%',
+          width: '40vw', height: '40vw', borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(232, 235, 240, 0.08) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          animationDuration: '14s',
+          animationDelay: '2s'
+        }} />
+      </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 20, textAlign: 'center', maxWidth: '1050px' }}>
 

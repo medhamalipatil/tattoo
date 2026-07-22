@@ -258,6 +258,16 @@ input[type="range"]::-webkit-slider-thumb:hover {
   to   { transform: rotate(360deg); }
 }
 
+@keyframes bgPanZoom {
+  0%   { transform: scale(1) translate(0px, 0px); }
+  50%  { transform: scale(1.08) translate(-15px, -10px); }
+  100% { transform: scale(1) translate(0px, 0px); }
+}
+
+.landing-bg-animate {
+  animation: bgPanZoom 20s ease-in-out infinite;
+}
+
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-fade-in { animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
