@@ -13,39 +13,30 @@ export default function LandingPage({ onEnter }) {
       padding: '2rem',
       position: 'relative',
       overflow: 'hidden',
-      background: 'linear-gradient(160deg, #0F1117 0%, #161B22 50%, #0F1117 100%)',
     }}>
-      <Particles
-        color="#C0C8D8"
-        particleCount={3000}
-        particleSize={2}
-        animate={true}
-        className="z-0"
-      />
+      {/* Full-screen background photo */}
+      <div aria-hidden="true" style={{
+        position: 'fixed', inset: 0, zIndex: 0,
+        backgroundImage: 'url(/landing-bg.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        filter: 'brightness(0.55) saturate(0.85)',
+      }} />
 
-      {/* Ambient silver glows */}
-      <div aria-hidden="true" style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none', overflow: 'hidden' }}>
-        <div style={{
-          position: 'absolute', top: '-10%', left: '-5%',
-          width: '50vw', height: '50vw', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(192, 200, 216, 0.1) 0%, transparent 70%)',
-          filter: 'blur(60px)'
-        }} />
-        <div style={{
-          position: 'absolute', bottom: '-5%', right: '-5%',
-          width: '55vw', height: '40vw', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(192, 200, 216, 0.08) 0%, transparent 70%)',
-          filter: 'blur(60px)'
-        }} />
-        <div style={{
-          position: 'absolute', top: '40%', left: '40%',
-          width: '30vw', height: '30vw', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(232, 235, 240, 0.04) 0%, transparent 70%)',
-          filter: 'blur(80px)'
-        }} />
-      </div>
+      {/* Dark cinematic gradient overlay — keeps text readable */}
+      <div aria-hidden="true" style={{
+        position: 'fixed', inset: 0, zIndex: 1, pointerEvents: 'none',
+        background: 'linear-gradient(160deg, rgba(0,0,0,0.72) 0%, rgba(10,10,18,0.62) 50%, rgba(0,0,0,0.80) 100%)',
+      }} />
 
-      <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '1050px' }}>
+      {/* Subtle silver shimmer vignette */}
+      <div aria-hidden="true" style={{
+        position: 'fixed', inset: 0, zIndex: 2, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse at 50% 0%, rgba(192,200,216,0.08) 0%, transparent 60%)',
+      }} />
+
+      <div className="container" style={{ position: 'relative', zIndex: 20, textAlign: 'center', maxWidth: '1050px' }}>
 
         {/* Hero */}
         <div className="animate-slide-up" style={{ marginBottom: '3rem' }}>

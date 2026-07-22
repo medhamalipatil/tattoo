@@ -37,6 +37,7 @@ import ImageSearch from './components/ImageSearch';
 import ExploreFeed from './components/ExploreFeed';
 import LandingPage from './components/LandingPage';
 import { DottedSurface } from './components/ui/DottedSurface';
+import OrbitalBackground from './components/ui/OrbitalBackground';
 
 // ── Initial mock artists list (shared state) ──────────────────────────────────
 const initialArtists = [
@@ -343,8 +344,10 @@ export default function App() {
   }
 
   return (
-    <DottedSurface>
-      <div className="dashboard-grid">
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--bg-base)' }}>
+      {/* Animated orbital background — live on all dashboards */}
+      <OrbitalBackground opacity={0.6} />
+      <div className="dashboard-grid" style={{ position: 'relative', zIndex: 1 }}>
 
       {/* ── SIDEBAR ── */}
       <aside className="sidebar">
@@ -842,6 +845,6 @@ export default function App() {
       )}
 
       </div>
-    </DottedSurface>
+    </div>
   );
 }
