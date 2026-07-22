@@ -4,6 +4,7 @@ import {
   TrendingUp, RefreshCw, DollarSign, Calendar, Star, Compass, Info
 } from 'lucide-react';
 import { PRESETS, analyzeUploadedImage, performVisionSearch, calculateEstimatedCost } from '../utils/visionEngine';
+import { IconDiamondSparkle } from './ui/TattooIcons';
 
 export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -35,8 +36,8 @@ export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }
         100% { top: 0%; }
       }
       @keyframes pulseBorder {
-        0%, 100% { border-color: rgba(0, 242, 254, 0.4); }
-        50% { border-color: rgba(0, 242, 254, 1); }
+        0%, 100% { border-color: rgba(173, 181, 189, 0.1); }
+        50% { border-color: rgba(173, 181, 189, 0.1); }
       }
     `;
     document.head.appendChild(style);
@@ -103,7 +104,7 @@ export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }
       {/* Header */}
       <div className="glass-panel" style={{ padding: '1.5rem 2rem' }}>
         <h2 style={{ fontSize: '1.6rem', fontWeight: 700, fontFamily: 'var(--font-display)', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          <Sparkles className="gradient-text" /> AI Image Search
+          <IconDiamondSparkle size={32} color="var(--accent-orange)" /> AI Image Search
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: '0.2rem' }}>
           Upload a sketch, Pinterest reference, or tattoo picture to identify its style, objects, and matching local artists.
@@ -127,18 +128,18 @@ export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }
               justifyContent: 'center',
               gap: '1.2rem',
               cursor: 'pointer',
-              border: '2px dashed rgba(0, 242, 254, 0.2)',
+              border: '2px dashed rgba(173, 181, 189, 0.1)',
               borderRadius: '16px',
-              background: 'rgba(0, 242, 254, 0.01)',
+              background: 'rgba(173, 181, 189, 0.1)',
               transition: 'all 0.2s ease',
             }}
             onMouseEnter={e => {
               e.currentTarget.style.borderColor = 'var(--accent-teal)';
-              e.currentTarget.style.background = 'rgba(0, 242, 254, 0.03)';
+              e.currentTarget.style.background = 'rgba(173, 181, 189, 0.1)';
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'rgba(0, 242, 254, 0.2)';
-              e.currentTarget.style.background = 'rgba(0, 242, 254, 0.01)';
+              e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)';
+              e.currentTarget.style.background = 'rgba(173, 181, 189, 0.1)';
             }}
           >
             <input
@@ -150,7 +151,7 @@ export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }
             />
             <div style={{
               width: '64px', height: '64px', borderRadius: '50%',
-              background: 'rgba(0, 242, 254, 0.1)', display: 'flex',
+              background: 'rgba(173, 181, 189, 0.1)', display: 'flex',
               alignItems: 'center', justifyContent: 'center', color: 'var(--accent-teal)'
             }}>
               <Upload size={28} />
@@ -209,9 +210,9 @@ export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }
           <div style={{
             position: 'relative', width: '220px', height: '220px',
             borderRadius: '16px', overflow: 'hidden',
-            border: '2px solid rgba(0, 242, 254, 0.4)',
+            border: '2px solid rgba(173, 181, 189, 0.1)',
             animation: 'pulseBorder 2s infinite',
-            boxShadow: '0 0 20px rgba(0, 242, 254, 0.2)'
+            boxShadow: '0 0 20px rgba(173, 181, 189, 0.1)'
           }}>
             <img
               src={previewUrl}
@@ -277,7 +278,7 @@ export default function ImageSearch({ globalCatalog, artistsList, setActiveTab }
               <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase' }}>Symbolic Meanings</span>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '0.3rem' }}>
                 {visionData.symbols.map(sym => (
-                  <span key={sym} style={{ fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(0, 242, 254, 0.05)', color: 'var(--accent-teal)', border: '1px solid rgba(0, 242, 254, 0.1)' }}>
+                  <span key={sym} style={{ fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(173, 181, 189, 0.1)', color: 'var(--accent-teal)', border: '1px solid rgba(173, 181, 189, 0.1)' }}>
                     {sym}
                   </span>
                 ))}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  Bot, User, Sparkles, ChevronRight, RotateCcw, Clock,
+  User, ChevronRight, RotateCcw, Clock,
   Brain, Palette, MapPin, Star, Award, ChevronDown, ChevronUp
 } from 'lucide-react';
 import {
@@ -8,6 +8,7 @@ import {
   saveConsultationToHistory,
   loadConsultationHistory,
 } from '../utils/aiConsultant';
+import { IconAllSeeingEye, IconDiamondSparkle } from './ui/TattooIcons';
 
 // ── Question Flow Definition ──────────────────────────────────────────────────
 const QUESTIONS = [
@@ -64,7 +65,7 @@ function TypingIndicator() {
         background: 'linear-gradient(135deg, var(--accent-teal), var(--accent-purple))',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
       }}>
-        <Bot size={16} color="#07070a" />
+        <IconAllSeeingEye size={20} color="#07070a" />
       </div>
       <div style={{
         background: 'var(--bg-surface-elevated)',
@@ -105,7 +106,7 @@ function AIBubble({ text }) {
         background: 'linear-gradient(135deg, var(--accent-teal), var(--accent-purple))',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
       }}>
-        <Bot size={16} color="#07070a" />
+        <IconAllSeeingEye size={20} color="#07070a" />
       </div>
       <div style={{
         background: 'var(--bg-surface-elevated)',
@@ -128,15 +129,15 @@ function UserBubble({ text }) {
     <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', maxWidth: '70%', alignSelf: 'flex-end', flexDirection: 'row-reverse' }} className="animate-slide-up">
       <div style={{
         width: '32px', height: '32px', borderRadius: '50%',
-        background: 'rgba(0, 242, 254, 0.15)',
-        border: '1px solid rgba(0, 242, 254, 0.3)',
+        background: 'rgba(173, 181, 189, 0.1)',
+        border: '1px solid rgba(173, 181, 189, 0.1)',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
       }}>
         <User size={16} style={{ color: 'var(--accent-teal)' }} />
       </div>
       <div style={{
-        background: 'rgba(0, 242, 254, 0.08)',
-        border: '1px solid rgba(0, 242, 254, 0.2)',
+        background: 'rgba(173, 181, 189, 0.1)',
+        border: '1px solid rgba(173, 181, 189, 0.1)',
         borderRadius: '18px 4px 18px 18px',
         padding: '0.9rem 1.2rem',
         fontSize: '0.9rem',
@@ -164,12 +165,12 @@ function ConsultationReport({ report, onRestart, artistsList }) {
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
       {/* Header */}
-      <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center', background: 'linear-gradient(135deg, rgba(0,242,254,0.05) 0%, rgba(157,78,221,0.05) 100%)' }}>
+      <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center', background: 'linear-gradient(135deg, rgba(173, 181, 189, 0.1) 0%, rgba(157,78,221,0.05) 100%)' }}>
         <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>✨</div>
         <h2 style={{ fontSize: '1.6rem', fontWeight: 800, fontFamily: 'var(--font-display)', marginBottom: '0.4rem' }}>
           Your Tattoo Soul Report
         </h2>
-        <div style={{ display: 'inline-block', background: 'rgba(0,242,254,0.1)', border: '1px solid rgba(0,242,254,0.3)', borderRadius: '20px', padding: '0.3rem 1rem', color: 'var(--accent-teal)', fontWeight: 700, fontSize: '0.9rem', marginBottom: '1rem' }}>
+        <div style={{ display: 'inline-block', background: 'rgba(173, 181, 189, 0.1)', border: '1px solid rgba(173, 181, 189, 0.1)', borderRadius: '20px', padding: '0.3rem 1rem', color: 'var(--accent-teal)', fontWeight: 700, fontSize: '0.9rem', marginBottom: '1rem' }}>
           {archetype}
         </div>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
@@ -191,7 +192,7 @@ function ConsultationReport({ report, onRestart, artistsList }) {
       {/* 2. Recommended Symbols */}
       <div className="glass-panel" style={{ padding: '1.8rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.2rem' }}>
-          <Sparkles size={20} style={{ color: 'var(--accent-teal)' }} />
+          <IconDiamondSparkle size={20} color="var(--accent-teal)" />
           <h3 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Recommended Symbols & Meaning</h3>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -238,8 +239,8 @@ function ConsultationReport({ report, onRestart, artistsList }) {
             <div key={s.name} style={{
               display: 'flex', gap: '1rem', alignItems: 'flex-start',
               padding: '1rem', borderRadius: '10px',
-              background: i === 0 ? 'rgba(0,242,254,0.05)' : 'rgba(255,255,255,0.02)',
-              border: `1px solid ${i === 0 ? 'rgba(0,242,254,0.2)' : 'rgba(255,255,255,0.04)'}`,
+              background: i === 0 ? 'rgba(173, 181, 189, 0.1)' : 'rgba(255,255,255,0.02)',
+              border: `1px solid ${i === 0 ? 'rgba(173, 181, 189, 0.1)' : 'rgba(255,255,255,0.04)'}`,
             }}>
               <div style={{ fontWeight: 800, fontSize: '1.3rem', color: i === 0 ? 'var(--accent-teal)' : 'var(--text-muted)', flexShrink: 0 }}>
                 0{i + 1}
@@ -307,7 +308,7 @@ function ConsultationReport({ report, onRestart, artistsList }) {
           }}>
             <div style={{
               width: '56px', height: '56px', borderRadius: '50%',
-              background: 'linear-gradient(135deg, rgba(0,242,254,0.2), rgba(157,78,221,0.2))',
+              background: 'linear-gradient(135deg, rgba(173, 181, 189, 0.1), rgba(157,78,221,0.2))',
               display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               fontSize: '1.5rem'
             }}>
@@ -318,7 +319,7 @@ function ConsultationReport({ report, onRestart, artistsList }) {
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>📍 {artistRecommendation.city} · {artistRecommendation.price}</div>
               <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                 {artistRecommendation.styles?.map(s => (
-                  <span key={s} style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(0,242,254,0.08)', color: 'var(--accent-teal)' }}>{s}</span>
+                  <span key={s} style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(173, 181, 189, 0.1)', color: 'var(--accent-teal)' }}>{s}</span>
                 ))}
               </div>
             </div>
@@ -511,7 +512,7 @@ export default function AIConsultant({ globalCatalog, artistsList }) {
                     background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)',
                     transition: 'border-color 0.2s ease'
                   }}
-                  onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(0,242,254,0.3)'}
+                  onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'}
                   onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'}
                 >
                   <div>
@@ -625,7 +626,7 @@ export default function AIConsultant({ globalCatalog, artistsList }) {
                         cursor: 'pointer',
                         border: '1px solid',
                         borderColor: isSelected ? 'var(--accent-teal)' : 'rgba(255,255,255,0.12)',
-                        background: isSelected ? 'rgba(0,242,254,0.1)' : 'var(--bg-surface-elevated)',
+                        background: isSelected ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                         color: isSelected ? 'var(--accent-teal)' : 'var(--text-secondary)',
                         transition: 'all 0.15s ease'
                       }}

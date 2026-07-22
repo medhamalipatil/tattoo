@@ -124,7 +124,7 @@ export default function Assessment({ onComplete }) {
             <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
               Unlike generic collections of trending photos, SoulInk designs recommendations based on who you are. This interactive assessment calculates your values, traits, and life journey to match you with deep tattoo history and symbols.
             </p>
-            <div style={{ padding: '1.2rem', background: 'rgba(0, 242, 254, 0.05)', borderRadius: '12px', border: '1px solid rgba(0, 242, 254, 0.1)', marginBottom: '2rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+            <div style={{ padding: '1.2rem', background: 'rgba(173, 181, 189, 0.1)', borderRadius: '12px', border: '1px solid rgba(173, 181, 189, 0.1)', marginBottom: '2rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <Sparkles size={20} className="gradient-text" style={{ flexShrink: 0, marginTop: '2px' }} />
               <div style={{ fontSize: '0.85rem', lineHeight: '1.5' }}>
                 <strong>How it works:</strong> We use a hybrid content-filtering recommendation engine to balance your personal traits, desired size, style, and core emotional memories, matching them against curated cultural histories.
@@ -227,13 +227,13 @@ export default function Assessment({ onComplete }) {
                       borderRadius: '30px',
                       border: '1px solid',
                       borderColor: active ? 'var(--accent-teal)' : 'rgba(255, 255, 255, 0.1)',
-                      background: active ? 'rgba(0, 242, 254, 0.12)' : 'var(--bg-surface-elevated)',
+                      background: active ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                       color: active ? 'var(--accent-teal)' : 'var(--text-primary)',
                       cursor: 'pointer',
                       fontSize: '0.9rem',
                       fontWeight: 500,
                       transition: 'all 0.2s ease',
-                      boxShadow: active ? '0 0 10px rgba(0, 242, 254, 0.1)' : 'none'
+                      boxShadow: active ? '0 0 10px rgba(173, 181, 189, 0.1)' : 'none'
                     }}
                   >
                     {val}
@@ -264,7 +264,7 @@ export default function Assessment({ onComplete }) {
                       borderRadius: '12px',
                       border: '1px solid',
                       borderColor: active ? 'var(--accent-teal)' : 'rgba(255, 255, 255, 0.08)',
-                      background: active ? 'rgba(0, 242, 254, 0.08)' : 'var(--bg-surface-elevated)',
+                      background: active ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                       color: active ? 'var(--accent-teal)' : 'var(--text-secondary)',
                       cursor: 'pointer',
                       fontSize: '0.85rem',
@@ -308,7 +308,7 @@ export default function Assessment({ onComplete }) {
                       borderRadius: '12px',
                       border: '1px solid',
                       borderColor: active ? 'var(--accent-teal)' : 'rgba(255, 255, 255, 0.08)',
-                      background: active ? 'rgba(0, 242, 254, 0.08)' : 'var(--bg-surface-elevated)',
+                      background: active ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                       color: active ? 'var(--text-primary)' : 'var(--text-secondary)',
                       cursor: 'pointer',
                       fontSize: '0.9rem',
@@ -397,7 +397,7 @@ export default function Assessment({ onComplete }) {
                           borderRadius: '8px',
                           border: '1px solid',
                           borderColor: active ? 'var(--accent-teal)' : 'rgba(255, 255, 255, 0.08)',
-                          background: active ? 'rgba(0, 242, 254, 0.08)' : 'var(--bg-surface-elevated)',
+                          background: active ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                           color: active ? 'var(--accent-teal)' : 'var(--text-secondary)',
                           cursor: 'pointer',
                           fontWeight: 500,

@@ -6,6 +6,20 @@ import {
 } from 'lucide-react';
 import { recommendTattoos } from './utils/recommender';
 import { tattoosData } from './data/tattoosData';
+import {
+  IconTattooMachine,
+  IconSwallow,
+  IconSacredHeart,
+  IconDiamondSparkle,
+  IconAnchor,
+  IconSkullDagger,
+  IconAllSeeingEye,
+  IconRose,
+  IconHourglass,
+  IconHorseshoe,
+  IconGentlemanSkull,
+  IconCompassRose
+} from './components/ui/TattooIcons';
 
 // Component imports
 import Assessment from './components/Assessment';
@@ -286,25 +300,25 @@ export default function App() {
   // ── Role-based Navigation ─────────────────────────────────────────────────
   const roleNavConfig = {
     Customer: [
-      { id: 'Dashboard', label: 'My Dashboard', icon: User },
-      { id: 'Consultant', label: 'AI Consultant', icon: Bot },
-      { id: 'Generator', label: 'AI Generator', icon: Wand2 },
-      { id: 'ImageSearch', label: 'AI Image Search', icon: Search },
-      { id: 'Assessment', label: 'Soul Assessment', icon: Sparkles },
-      { id: 'Simulator', label: 'Tattoo Simulator', icon: Compass },
-      { id: 'Artists', label: 'Artist Finder', icon: Award },
-      { id: 'Stories', label: 'Community Stories', icon: BookOpen },
-      { id: 'Explore', label: 'Explore Feed', icon: Compass },
+      { id: 'Dashboard', label: 'My Dashboard', icon: IconGentlemanSkull },
+      { id: 'Consultant', label: 'AI Consultant', icon: IconAllSeeingEye },
+      { id: 'Generator', label: 'AI Generator', icon: IconDiamondSparkle },
+      { id: 'ImageSearch', label: 'AI Image Search', icon: IconCompassRose },
+      { id: 'Assessment', label: 'Soul Assessment', icon: IconSacredHeart },
+      { id: 'Simulator', label: 'Tattoo Simulator', icon: IconHourglass },
+      { id: 'Artists', label: 'Artist Finder', icon: IconRose },
+      { id: 'Stories', label: 'Community Stories', icon: IconSwallow },
+      { id: 'Explore', label: 'Explore Feed', icon: IconAnchor },
     ],
     Shopkeeper: [
-      { id: 'ShopDashboard', label: 'Studio Console', icon: Store },
-      { id: 'Artists', label: 'Artist Directory', icon: Award },
-      { id: 'Stories', label: 'Community Stories', icon: BookOpen },
+      { id: 'ShopDashboard', label: 'Studio Console', icon: IconHorseshoe },
+      { id: 'Artists', label: 'Artist Directory', icon: IconRose },
+      { id: 'Stories', label: 'Community Stories', icon: IconSwallow },
     ],
     Admin: [
-      { id: 'Admin', label: 'Admin Console', icon: Database },
-      { id: 'Artists', label: 'Artist Directory', icon: Award },
-      { id: 'Stories', label: 'Community Stories', icon: BookOpen },
+      { id: 'Admin', label: 'Admin Console', icon: IconSkullDagger },
+      { id: 'Artists', label: 'Artist Directory', icon: IconRose },
+      { id: 'Stories', label: 'Community Stories', icon: IconSwallow },
     ],
   };
 
@@ -318,9 +332,9 @@ export default function App() {
   const tabs = roleNavConfig[userRole];
 
   const roleColors = {
-    Customer: { color: 'var(--accent-teal)', label: 'Customer', icon: User },
-    Shopkeeper: { color: 'var(--accent-gold)', label: 'Shopkeeper', icon: Store },
-    Admin: { color: 'var(--accent-purple)', label: 'Admin', icon: ShieldCheck },
+    Customer: { color: '#C0C8D8', label: 'Customer', icon: IconGentlemanSkull },
+    Shopkeeper: { color: '#ADB5BD', label: 'Shopkeeper', icon: IconHorseshoe },
+    Admin: { color: '#ADB5BD', label: 'Admin', icon: IconSkullDagger },
   };
   const currentRole = roleColors[userRole];
 
@@ -346,9 +360,9 @@ export default function App() {
           <div style={{
             width: '40px', height: '40px', borderRadius: '12px',
             background: 'var(--accent-gradient)', display: 'flex', alignItems: 'center',
-            justifyContent: 'center', boxShadow: '0 4px 15px rgba(0, 242, 254, 0.4)'
+            justifyContent: 'center', boxShadow: '0 4px 15px rgba(173, 181, 189, )'
           }}>
-            <Sparkles size={20} style={{ color: '#07070a' }} />
+            <IconTattooMachine size={24} color="#07070a" />
           </div>
           <div>
             <h1 style={{ fontSize: '1.4rem', fontWeight: 800, letterSpacing: '-0.03em', fontFamily: 'var(--font-display)' }} className="glow-text">
@@ -546,7 +560,7 @@ export default function App() {
                       padding: '0.4rem 0.8rem', borderRadius: '15px', fontSize: '0.75rem',
                       fontWeight: 600, cursor: 'pointer', border: '1px solid',
                       borderColor: active ? 'var(--accent-teal)' : 'rgba(255, 255, 255, 0.08)',
-                      background: active ? 'rgba(0, 242, 254, 0.12)' : 'var(--bg-surface-elevated)',
+                      background: active ? 'rgba(173, 181, 189, )' : 'var(--bg-surface-elevated)',
                       color: active ? 'var(--accent-teal)' : 'var(--text-secondary)',
                       transition: 'all 0.2s ease'
                     }}

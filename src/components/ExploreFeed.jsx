@@ -7,6 +7,7 @@ import {
   EXPLORE_PINS, getBoards, savePinToBoard, createNewBoard,
   getFollowedArtists, toggleFollowArtist, getLikedPins, toggleLikePin
 } from '../utils/exploreData';
+import { IconDiamondSparkle } from './ui/TattooIcons';
 
 export default function ExploreFeed({ artistsList, setActiveTab, isGuest, onRequireAuth }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -149,7 +150,7 @@ export default function ExploreFeed({ artistsList, setActiveTab, isGuest, onRequ
       <div className="glass-panel" style={{ padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.2rem' }}>
         <div>
           <h2 style={{ fontSize: '1.6rem', fontWeight: 700, fontFamily: 'var(--font-display)', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <Sparkles className="gradient-text" /> Inspiration Explore Feed
+            <IconDiamondSparkle size={32} color="var(--accent-orange)" /> Inspiration Explore Feed
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: '0.2rem' }}>
             Discover catalog designs, follow creators, and curate custom inspiration boards.
@@ -198,7 +199,7 @@ export default function ExploreFeed({ artistsList, setActiveTab, isGuest, onRequ
                       background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)',
                       cursor: 'pointer', transition: 'border-color 0.2s ease'
                     }}
-                    onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(0,242,254,0.3)'}
+                    onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'}
                     onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'}
                   >
                     <img src={artist.avatar} alt={artist.name} style={{ width: '20px', height: '20px', borderRadius: '50%', objectFit: 'cover' }} />
@@ -251,7 +252,7 @@ export default function ExploreFeed({ artistsList, setActiveTab, isGuest, onRequ
                 padding: '0.3rem 0.7rem', borderRadius: '15px', fontSize: '0.75rem', fontWeight: 600,
                 border: '1px solid', cursor: 'pointer',
                 borderColor: activeBoardFilter === 'All' ? 'var(--accent-teal)' : 'rgba(255,255,255,0.08)',
-                background: activeBoardFilter === 'All' ? 'rgba(0,242,254,0.1)' : 'transparent',
+                background: activeBoardFilter === 'All' ? 'rgba(173, 181, 189, 0.1)' : 'transparent',
                 color: activeBoardFilter === 'All' ? 'var(--accent-teal)' : 'var(--text-secondary)'
               }}
             >
@@ -265,7 +266,7 @@ export default function ExploreFeed({ artistsList, setActiveTab, isGuest, onRequ
                   padding: '0.3rem 0.7rem', borderRadius: '15px', fontSize: '0.75rem', fontWeight: 600,
                   border: '1px solid', cursor: 'pointer',
                   borderColor: activeBoardFilter === bName ? 'var(--accent-teal)' : 'rgba(255,255,255,0.08)',
-                  background: activeBoardFilter === bName ? 'rgba(0,242,254,0.1)' : 'transparent',
+                  background: activeBoardFilter === bName ? 'rgba(173, 181, 189, 0.1)' : 'transparent',
                   color: activeBoardFilter === bName ? 'var(--accent-teal)' : 'var(--text-secondary)'
                 }}
               >
@@ -287,7 +288,7 @@ export default function ExploreFeed({ artistsList, setActiveTab, isGuest, onRequ
               padding: '0.45rem 1rem', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 600,
               cursor: 'pointer', border: '1px solid',
               borderColor: selectedStyle === style ? 'var(--accent-teal)' : 'rgba(255,255,255,0.08)',
-              background: selectedStyle === style ? 'rgba(0,242,254,0.1)' : 'var(--bg-surface-elevated)',
+              background: selectedStyle === style ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
               color: selectedStyle === style ? 'var(--accent-teal)' : 'var(--text-secondary)',
               transition: 'all 0.15s ease'
             }}
@@ -318,7 +319,7 @@ export default function ExploreFeed({ artistsList, setActiveTab, isGuest, onRequ
                   
                   {/* Top Bar: Follow & Style */}
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.72rem', background: 'rgba(0,242,254,0.15)', color: 'var(--accent-teal)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontWeight: 700 }}>
+                    <span style={{ fontSize: '0.72rem', background: 'rgba(173, 181, 189, 0.1)', color: 'var(--accent-teal)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontWeight: 700 }}>
                       {pin.style}
                     </span>
                     <button

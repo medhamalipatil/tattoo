@@ -61,7 +61,7 @@ function ImageCard({ image, onRegenerate, onSave, onDownload, onWishlist, onBook
       display: 'flex', flexDirection: 'column',
       transition: 'border-color 0.2s ease, transform 0.2s ease'
     }}
-      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0,242,254,0.25)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
       onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'none'; }}
     >
       {/* Image area */}
@@ -144,8 +144,8 @@ function ImageCard({ image, onRegenerate, onSave, onDownload, onWishlist, onBook
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: '0.45rem 0.6rem', borderRadius: '7px', border: '1px solid',
-            borderColor: isSaved ? 'rgba(0,242,254,0.4)' : 'rgba(255,255,255,0.1)',
-            background: isSaved ? 'rgba(0,242,254,0.08)' : 'transparent',
+            borderColor: isSaved ? 'rgba(173, 181, 189, 0.1)' : 'rgba(255,255,255,0.1)',
+            background: isSaved ? 'rgba(173, 181, 189, 0.1)' : 'transparent',
             color: isSaved ? 'var(--accent-teal)' : 'var(--text-secondary)',
             cursor: 'pointer', fontSize: '0.72rem', transition: 'all 0.15s ease',
           }}
@@ -297,7 +297,7 @@ export default function TattooGenerator({ artistsList, onAddBooking, userCredent
                     background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)',
                     transition: 'border-color 0.2s ease'
                   }}
-                  onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(0,242,254,0.25)'}
+                  onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'}
                   onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'}
                 >
                   <div>
@@ -407,7 +407,7 @@ export default function TattooGenerator({ artistsList, onAddBooking, userCredent
                     padding: '0.4rem 0.8rem', borderRadius: '15px', fontSize: '0.75rem', fontWeight: 600,
                     cursor: 'pointer', border: '1px solid',
                     borderColor: inputs.colour === c ? 'var(--accent-teal)' : 'rgba(255,255,255,0.08)',
-                    background: inputs.colour === c ? 'rgba(0,242,254,0.1)' : 'var(--bg-surface-elevated)',
+                    background: inputs.colour === c ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                     color: inputs.colour === c ? 'var(--accent-teal)' : 'var(--text-secondary)',
                     transition: 'all 0.15s ease',
                   }}
@@ -430,7 +430,7 @@ export default function TattooGenerator({ artistsList, onAddBooking, userCredent
                     flex: 1, padding: '0.5rem', borderRadius: '8px', fontSize: '0.8rem', fontWeight: 600,
                     cursor: 'pointer', border: '1px solid',
                     borderColor: inputs.size === s ? 'var(--accent-teal)' : 'rgba(255,255,255,0.08)',
-                    background: inputs.size === s ? 'rgba(0,242,254,0.1)' : 'var(--bg-surface-elevated)',
+                    background: inputs.size === s ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                     color: inputs.size === s ? 'var(--accent-teal)' : 'var(--text-secondary)',
                     transition: 'all 0.15s ease',
                   }}
@@ -468,7 +468,7 @@ export default function TattooGenerator({ artistsList, onAddBooking, userCredent
               </p>
               <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                 {['Minimal', 'Watercolor', 'Geometric', 'Japanese'].map(style => (
-                  <span key={style} style={{ fontSize: '0.75rem', padding: '0.3rem 0.8rem', borderRadius: '12px', background: 'rgba(0,242,254,0.05)', color: 'var(--text-muted)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span key={style} style={{ fontSize: '0.75rem', padding: '0.3rem 0.8rem', borderRadius: '12px', background: 'rgba(173, 181, 189, 0.1)', color: 'var(--text-muted)', border: '1px solid rgba(255,255,255,0.05)' }}>
                     {style}
                   </span>
                 ))}
@@ -487,7 +487,7 @@ export default function TattooGenerator({ artistsList, onAddBooking, userCredent
                   }}>
                     <div style={{
                       position: 'absolute', inset: 0, borderRadius: '14px',
-                      background: 'linear-gradient(90deg, transparent 0%, rgba(0,242,254,0.04) 50%, transparent 100%)',
+                      background: 'linear-gradient(90deg, transparent 0%, rgba(173, 181, 189, 0.1) 50%, transparent 100%)',
                       backgroundSize: '200% 100%',
                       animation: 'shimmer 1.5s infinite'
                     }} />

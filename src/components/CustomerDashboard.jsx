@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Heart, Clock, CheckCircle, XCircle, RefreshCcw, Calendar, Sparkles, User, Star } from 'lucide-react';
+import { Clock, CheckCircle, XCircle, RefreshCcw, Calendar, Star } from 'lucide-react';
 import { tattoosData } from '../data/tattoosData';
+import { IconGentlemanSkull, IconAllSeeingEye, IconSacredHeart } from './ui/TattooIcons';
 
 // Reusable pop handler helpers
 const popIn = (e) => {
   e.currentTarget.style.transform = 'translateY(-6px) scale(1.03)';
-  e.currentTarget.style.boxShadow = '0 16px 48px -12px rgba(0, 242, 254, 0.35)';
-  e.currentTarget.style.borderColor = 'rgba(0, 242, 254, 0.4)';
+  e.currentTarget.style.boxShadow = '0 16px 48px -12px rgba(173, 181, 189, 0.1)';
+  e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)';
 };
 const popOut = (e) => {
   e.currentTarget.style.transform = 'translateY(0) scale(1)';
@@ -50,7 +51,7 @@ export default function CustomerDashboard({ bookings, userCredentials, globalCat
       >
         <div>
           <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '0.4rem', fontFamily: 'var(--font-display)', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <User className="gradient-text" />
+            <IconGentlemanSkull size={28} color="var(--accent-orange)" />
             Welcome back, {userCredentials?.name || 'Guest'}!
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
@@ -62,7 +63,7 @@ export default function CustomerDashboard({ bookings, userCredentials, globalCat
           className="btn-primary"
           style={{ padding: '0.7rem 1.4rem', fontSize: '0.9rem', whiteSpace: 'nowrap' }}
         >
-          <Sparkles size={16} /> Start Soul Assessment
+          <IconAllSeeingEye size={16} /> Start Soul Assessment
         </button>
       </div>
 
@@ -123,7 +124,7 @@ export default function CustomerDashboard({ bookings, userCredentials, globalCat
                   cursor: 'pointer',
                   border: '1px solid',
                   borderColor: filterStatus === s ? 'var(--accent-teal)' : 'rgba(255,255,255,0.08)',
-                  background: filterStatus === s ? 'rgba(0, 242, 254, 0.1)' : 'transparent',
+                  background: filterStatus === s ? 'rgba(173, 181, 189, 0.1)' : 'transparent',
                   color: filterStatus === s ? 'var(--accent-teal)' : 'var(--text-secondary)',
                   transition: 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)'
                 }}
@@ -138,7 +139,9 @@ export default function CustomerDashboard({ bookings, userCredentials, globalCat
 
         {filtered.length === 0 ? (
           <div style={{ padding: '3rem 1rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-            <Heart size={48} style={{ opacity: 0.2, marginBottom: '1rem', display: 'block', margin: '0 auto 1rem' }} />
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem', opacity: 0.2 }}>
+              <IconSacredHeart size={48} color="currentColor" />
+            </div>
             <p style={{ fontWeight: 500, marginBottom: '0.5rem' }}>No bookings yet!</p>
             <p style={{ fontSize: '0.85rem' }}>
               Go to <strong style={{ color: 'var(--accent-teal)' }}>Artist Finder</strong> tab to browse studios and request a consultation.
@@ -169,8 +172,8 @@ export default function CustomerDashboard({ bookings, userCredentials, globalCat
                   }}
                   onMouseEnter={e => {
                     e.currentTarget.style.transform = 'translateY(-5px) scale(1.015)';
-                    e.currentTarget.style.boxShadow = '0 14px 40px -10px rgba(0, 242, 254, 0.25)';
-                    e.currentTarget.style.borderColor = 'rgba(0, 242, 254, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 14px 40px -10px rgba(173, 181, 189, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)';
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.transform = 'translateY(0) scale(1)';
@@ -239,7 +242,7 @@ export default function CustomerDashboard({ bookings, userCredentials, globalCat
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-6px) scale(1.06)';
-                e.currentTarget.style.boxShadow = '0 12px 30px -8px rgba(0, 242, 254, 0.3)';
+                e.currentTarget.style.boxShadow = '0 12px 30px -8px rgba(173, 181, 189, 0.1)';
                 e.currentTarget.style.borderColor = 'var(--accent-teal)';
               }}
               onMouseLeave={e => {

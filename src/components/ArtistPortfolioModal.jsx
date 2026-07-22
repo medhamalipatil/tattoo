@@ -137,7 +137,7 @@ export default function ArtistPortfolioModal({ artist, onClose, onOpenBooking })
                 </h4>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                   {artist.specializations?.map(s => (
-                    <span key={s} style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(0,242,254,0.08)', color: 'var(--accent-teal)' }}>{s}</span>
+                    <span key={s} style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(173, 181, 189, 0.1)', color: 'var(--accent-teal)' }}>{s}</span>
                   ))}
                 </div>
               </div>
@@ -257,7 +257,7 @@ export default function ArtistPortfolioModal({ artist, onClose, onOpenBooking })
             {/* Right: Item details */}
             <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyBetween: 'space-between', gap: '1.2rem', overflowY: 'auto', maxHeight: '500px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.78rem', padding: '0.2rem 0.6rem', borderRadius: '10px', background: 'rgba(0,242,254,0.1)', color: 'var(--accent-teal)', fontWeight: 700 }}>
+                <span style={{ fontSize: '0.78rem', padding: '0.2rem 0.6rem', borderRadius: '10px', background: 'rgba(173, 181, 189, 0.1)', color: 'var(--accent-teal)', fontWeight: 700 }}>
                   {selectedItem.style}
                 </span>
                 <button

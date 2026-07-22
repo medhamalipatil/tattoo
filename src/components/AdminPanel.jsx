@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BarChart2, ShieldAlert, Layers, Plus, Database, Sparkles, Check, Trash, Users, Store } from 'lucide-react';
+import { BarChart2, ShieldAlert, Layers, Plus, Sparkles, Check, Trash, Users, Store } from 'lucide-react';
+import { IconAllSeeingEye } from './ui/TattooIcons';
 
 const mockLogs = [
   { id: 101, user: 'Sarah J.',  age: 24, traits: 'Heart-Led, Thrill Seeker',     matched: 'The Phoenix',          score: 96, date: '10 mins ago' },
@@ -9,7 +10,7 @@ const mockLogs = [
 ];
 
 const T = 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease';
-const popIn  = (e) => { e.currentTarget.style.transform = 'translateY(-6px) scale(1.03)'; e.currentTarget.style.boxShadow = '0 16px 40px -10px rgba(0,242,254,0.3)'; e.currentTarget.style.borderColor = 'rgba(0,242,254,0.4)'; };
+const popIn  = (e) => { e.currentTarget.style.transform = 'translateY(-6px) scale(1.03)'; e.currentTarget.style.boxShadow = '0 16px 40px -10px rgba(0, 196, 180, 0.4)'; e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'; };
 const popOut = (e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; e.currentTarget.style.borderColor = ''; };
 
 export default function AdminPanel({ globalCatalog, setGlobalCatalog, bookings, artistsList, setArtistsList }) {
@@ -63,7 +64,7 @@ export default function AdminPanel({ globalCatalog, setGlobalCatalog, bookings, 
       {/* Title */}
       <div className="glass-panel" style={{ padding: '2rem', transition: T }} onMouseEnter={popIn} onMouseLeave={popOut}>
         <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '0.4rem', fontFamily: 'var(--font-display)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Database className="gradient-text" /> InkMatch Control Console
+          <IconAllSeeingEye size={32} color="var(--accent-teal)" /> InkMatch Control Console
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
           Monitor live recommendation logs, track metrics, manage the catalog database, and review stories.
@@ -163,7 +164,7 @@ export default function AdminPanel({ globalCatalog, setGlobalCatalog, bookings, 
                   <tr
                     key={t.id}
                     style={{ borderBottom: '1px solid rgba(255,255,255,0.03)', transition: 'background 0.15s ease' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,242,254,0.04)'; }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(173, 181, 189, 0.1)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = ''; }}
                   >
                     <td style={{ padding: '0.8rem 0.5rem', fontWeight: 600, color: 'var(--text-primary)' }}>{t.name}</td>
@@ -204,7 +205,7 @@ export default function AdminPanel({ globalCatalog, setGlobalCatalog, bookings, 
                   display: 'flex', flexDirection: 'column', gap: '0.4rem',
                   transition: 'background 0.2s ease, border-color 0.2s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1)'
                 }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.background = 'rgba(0,242,254,0.04)'; e.currentTarget.style.borderColor = 'rgba(0,242,254,0.2)'; }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.background = 'rgba(173, 181, 189, 0.1)'; e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)'; }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 600 }}>

@@ -24,8 +24,8 @@ export default function TattooCard({ tattoo, onSelect, isSaved, onToggleSave }) 
       onClick={() => onSelect(tattoo)}
       onMouseEnter={e => {
         e.currentTarget.style.transform = 'translateY(-8px) scale(1.03)';
-        e.currentTarget.style.boxShadow = '0 20px 50px -12px rgba(0, 242, 254, 0.4)';
-        e.currentTarget.style.borderColor = 'rgba(0, 242, 254, 0.5)';
+        e.currentTarget.style.boxShadow = '0 20px 50px -12px rgba(173, 181, 189, 0.1)';
+        e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)';
       }}
       onMouseLeave={e => {
         e.currentTarget.style.transform = 'translateY(0) scale(1)';

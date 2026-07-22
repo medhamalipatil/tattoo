@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Store, Calendar, UserCheck, DollarSign, Star, Settings, Plus, Trash, Check, X, Briefcase, Clock, Tag, Edit3 } from 'lucide-react';
+import { Calendar, UserCheck, DollarSign, Star, Settings, Plus, Trash, Check, X, Briefcase, Clock, Tag, Edit3 } from 'lucide-react';
+import { IconAnchor, IconHourglass } from './ui/TattooIcons';
 
 // Pop helpers
 const T = 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease';
 
-const popIn  = (e) => { e.currentTarget.style.transform = 'translateY(-6px) scale(1.03)'; e.currentTarget.style.boxShadow = '0 16px 40px -10px rgba(0,242,254,0.3)'; e.currentTarget.style.borderColor = 'rgba(0,242,254,0.4)'; };
+const popIn  = (e) => { e.currentTarget.style.transform = 'translateY(-6px) scale(1.03)'; e.currentTarget.style.boxShadow = '0 16px 40px -10px rgba(173, 181, 189, 0.1)'; e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'; };
 const popOut = (e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; e.currentTarget.style.borderColor = ''; };
 
 export default function ShopkeeperDashboard({ artistsList, setArtistsList, bookings, setBookings, globalCatalog }) {
@@ -79,7 +80,7 @@ export default function ShopkeeperDashboard({ artistsList, setArtistsList, booki
         onMouseEnter={popIn} onMouseLeave={popOut}
       >
         <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '0.4rem', fontFamily: 'var(--font-display)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Store className="gradient-text" /> Shopkeeper Studio Console
+          <IconAnchor size={32} color="var(--accent-orange)" /> Shopkeeper Studio Console
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
           Manage your tattoo studio presence, review booking requests, configure services, and manage your artist roster.
@@ -121,7 +122,7 @@ export default function ShopkeeperDashboard({ artistsList, setArtistsList, booki
             onClick={() => setActiveSubTab(tab.id)}
             style={{
               padding: '0.6rem 1.2rem',
-              background: activeSubTab === tab.id ? 'rgba(0,242,254,0.06)' : 'transparent',
+              background: activeSubTab === tab.id ? 'rgba(173, 181, 189, 0.1)' : 'transparent',
               color: activeSubTab === tab.id ? 'var(--accent-teal)' : 'var(--text-secondary)',
               border: 'none',
               borderBottom: activeSubTab === tab.id ? '2px solid var(--accent-teal)' : '2px solid transparent',
@@ -153,7 +154,9 @@ export default function ShopkeeperDashboard({ artistsList, setArtistsList, booki
             <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1rem' }}>Active Customer Consultations</h3>
             {myBookings.length === 0 ? (
               <div style={{ padding: '3rem 1rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                <Calendar size={48} style={{ opacity: 0.2, marginBottom: '1rem' }} />
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem', opacity: 0.2 }}>
+                  <IconHourglass size={48} color="currentColor" />
+                </div>
                 <p>No booking inquiries yet from customers.</p>
                 <p style={{ fontSize: '0.8rem', marginTop: '0.4rem' }}>Switch to "Customer" role to request a booking from Aria Thorne in "Artist Finder".</p>
               </div>
@@ -168,7 +171,7 @@ export default function ShopkeeperDashboard({ artistsList, setArtistsList, booki
                       display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem',
                       transition: T, cursor: 'default'
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px) scale(1.015)'; e.currentTarget.style.boxShadow = '0 14px 40px -10px rgba(0,242,254,0.2)'; e.currentTarget.style.borderColor = 'rgba(0,242,254,0.3)'; }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px) scale(1.015)'; e.currentTarget.style.boxShadow = '0 14px 40px -10px rgba(173, 181, 189, 0.1)'; e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; }}
                   >
                     <div>
@@ -281,7 +284,7 @@ export default function ShopkeeperDashboard({ artistsList, setArtistsList, booki
                       style={{
                         padding: '0.4rem 0.8rem', borderRadius: '15px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer',
                         border: '1px solid', borderColor: checked ? 'var(--accent-teal)' : 'rgba(255,255,255,0.08)',
-                        background: checked ? 'rgba(0,242,254,0.1)' : 'var(--bg-surface-elevated)',
+                        background: checked ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                         color: checked ? 'var(--accent-teal)' : 'var(--text-secondary)',
                         transition: 'all 0.2s cubic-bezier(0.34,1.56,0.64,1)'
                       }}
@@ -316,7 +319,7 @@ export default function ShopkeeperDashboard({ artistsList, setArtistsList, booki
                       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                       transition: T, cursor: 'default'
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px) scale(1.03)'; e.currentTarget.style.boxShadow = '0 12px 32px -8px rgba(0,242,254,0.25)'; e.currentTarget.style.borderColor = 'rgba(0,242,254,0.35)'; }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px) scale(1.03)'; e.currentTarget.style.boxShadow = '0 12px 32px -8px rgba(173, 181, 189, 0.1)'; e.currentTarget.style.borderColor = 'rgba(173, 181, 189, 0.1)'; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; }}
                   >
                     <div>

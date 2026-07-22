@@ -40,7 +40,7 @@ export default function TattooDetailModal({ tattoo, onClose, isSaved, onToggleSa
           display: 'grid',
           gridTemplateColumns: '1fr 1.2fr',
           position: 'relative',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 242, 254, 0.1)'
+          boxShadow: '0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(173, 181, 189, 0.1)'
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -90,7 +90,7 @@ export default function TattooDetailModal({ tattoo, onClose, isSaved, onToggleSa
                 width: '80%',
                 maxHeight: '300px',
                 color: 'var(--text-primary)',
-                filter: 'drop-shadow(0 4px 12px rgba(0, 242, 254, 0.15))'
+                filter: 'drop-shadow(0 4px 12px rgba(173, 181, 189, 0.1))'
               }}
               dangerouslySetInnerHTML={{ __html: tattoo.svgMarkup }}
             />
@@ -139,7 +139,7 @@ export default function TattooDetailModal({ tattoo, onClose, isSaved, onToggleSa
             {tattoo.name}
           </h3>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(0, 242, 254, 0.08)', border: '1px solid rgba(0, 242, 254, 0.15)', padding: '0.3rem 0.8rem', borderRadius: '20px', color: getMatchColor(tattoo.matchPercentage), fontWeight: 700, fontSize: '0.85rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(173, 181, 189, 0.1)', border: '1px solid rgba(173, 181, 189, 0.1)', padding: '0.3rem 0.8rem', borderRadius: '20px', color: getMatchColor(tattoo.matchPercentage), fontWeight: 700, fontSize: '0.85rem', marginBottom: '1.5rem' }}>
             <Sparkles size={14} />
             <span>Compatibility Score: {tattoo.matchPercentage}% Match</span>
           </div>

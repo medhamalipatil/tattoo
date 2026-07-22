@@ -48,7 +48,7 @@ export default function TattooSimulator({ preselectedTattoo }) {
     switch (part) {
       case 'Forearm':
         return (
-          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#ffffff' }}>
+          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#E8EBF0' }}>
             {/* Outline of forearm */}
             <path d="M20,10 C25,30 30,80 35,140 C45,140 55,140 65,140 C70,80 75,30 80,10 Z" />
             <path d="M25,25 Q50,22 75,25" strokeDasharray="2 2" />
@@ -59,7 +59,7 @@ export default function TattooSimulator({ preselectedTattoo }) {
         );
       case 'Wrist':
         return (
-          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#ffffff' }}>
+          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#E8EBF0' }}>
             {/* Hand and wrist */}
             <path d="M50,140 L50,100 C40,95 35,70 38,40 C40,20 48,10 50,15 C52,10 60,20 62,40 C65,70 60,95 50,100" />
             <path d="M30,130 Q50,125 70,130" />
@@ -69,7 +69,7 @@ export default function TattooSimulator({ preselectedTattoo }) {
         );
       case 'Back':
         return (
-          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#ffffff' }}>
+          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#E8EBF0' }}>
             {/* Upper torso back view */}
             <path d="M10,80 C10,50 20,20 30,15 C35,12 40,20 50,20 C60,20 65,12 70,15 C80,20 90,50 90,80 C88,110 82,140 82,150 C50,150 50,150 18,150 C18,140 12,110 10,80 Z" />
             <path d="M50,20 L50,150" strokeDasharray="3 3" opacity="0.4" /> {/* Spine line */}
@@ -80,7 +80,7 @@ export default function TattooSimulator({ preselectedTattoo }) {
         );
       case 'Shoulder':
         return (
-          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#ffffff' }}>
+          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#E8EBF0' }}>
             {/* Upper arm shoulder */}
             <path d="M15,10 C20,10 30,15 45,25 C65,40 75,55 80,75 C85,95 80,120 75,145 C65,145 55,145 45,145 C38,120 28,95 22,60 C18,35 12,15 15,10 Z" />
             <ellipse cx="60" cy="55" rx="15" ry="25" strokeDasharray="2 2" transform="rotate(-15 60 55)" />
@@ -89,7 +89,7 @@ export default function TattooSimulator({ preselectedTattoo }) {
         );
       case 'Ankle':
         return (
-          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#ffffff' }}>
+          <svg viewBox="0 0 100 150" fill="none" stroke="currentColor" strokeWidth="0.8" style={{ width: '100%', height: '100%', opacity: 0.25, color: '#E8EBF0' }}>
             {/* Lower leg and ankle */}
             <path d="M35,10 C38,40 32,80 20,110 C18,115 15,120 25,125 C35,130 55,132 75,125 C82,118 80,105 72,90 C62,70 58,40 55,10 Z" />
             <circle cx="50" cy="100" r="12" strokeDasharray="2 2" />
@@ -272,7 +272,7 @@ export default function TattooSimulator({ preselectedTattoo }) {
                     borderRadius: '8px',
                     border: '1px solid',
                     borderColor: active ? 'var(--accent-teal)' : 'rgba(255, 255, 255, 0.08)',
-                    background: active ? 'rgba(0, 242, 254, 0.08)' : 'var(--bg-surface-elevated)',
+                    background: active ? 'rgba(173, 181, 189, 0.1)' : 'var(--bg-surface-elevated)',
                     color: active ? 'var(--accent-teal)' : 'var(--text-secondary)',
                     cursor: 'pointer',
                     fontSize: '0.8rem',
